@@ -53,7 +53,7 @@ function setup() {
 
   //add reset button
   button = createButton("reset");
-  button.position(1050, 640);
+  button.position(1000, 640);
   button.mousePressed(wipeData);
 }
 
