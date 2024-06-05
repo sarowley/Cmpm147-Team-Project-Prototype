@@ -1,8 +1,16 @@
-// Globals
-let canvasContainer;
+// sketch.js - purpose and description here
+// Author: Your Name
+// Date:
 
-let canvasWidth = 600;
-let canvasHeight = 600;
+// Here is how you might set up an OOP p5.js project
+// Note that p5.js looks for a file called sketch.js
+
+// Constants - User-servicable parts
+// In a longer project I like to put these in a separate file
+
+// Globals
+let myInstance;
+let canvasContainer;
 
 let geneA;
 let geneB;
@@ -19,42 +27,36 @@ let patternTypeC;
 // setup() function is called once when the program starts
 function setup() {
   canvasContainer = $("#canvas-container");
-  let canvas = createCanvas(canvasWidth, canvasHeight);
+  let canvas = createCanvas(600, 600);
   canvas.parent("canvas-container");
 
   //make button to change shirt to circles
   //left circles
-  button = createButton("circle");
-  button.position(600, 100);
-  button.mousePressed(circlePatternA);
+  circleButtonA = createButton("Person 1 Circle");
+  circleButtonA.mousePressed(circlePatternA);
 
   //make button to change shirt to squares
   //left squares
-  button = createButton("squares");
-  button.position(650, 100);
-  button.mousePressed(squaresPatternA);
+  squareButtonA = createButton("Person 1 Square");
+  squareButtonA.mousePressed(squaresPatternA);
 
   //make button to change shirt to circles
   //right circles
-  button = createButton("circle");
-  button.position(900, 100);
-  button.mousePressed(circlePatternB);
+  circleButtonB = createButton("Person 2 Circle");
+  circleButtonB.mousePressed(circlePatternB);
 
   //make button to change shirt to squares
   //right squares
-  button = createButton("squares");
-  button.position(950, 100);
-  button.mousePressed(squaresPatternB);
+  squareButtonB = createButton("Person 2 Square");
+  squareButtonB.mousePressed(squaresPatternB);
 
   //add button to make kid
-  button = createButton("generate");
-  button.position(820, 400);
-  button.mousePressed(generateKid);
+  generateButton = createButton("Generate Child");
+  generateButton.mousePressed(generateKid);
 
   //add reset button
-  button = createButton("reset");
-  button.position(1000, 640);
-  button.mousePressed(wipeData);
+  resetButton = createButton("Reset Data");
+  resetButton.mousePressed(wipeData);
 }
 
 //left circle pattern
@@ -103,7 +105,7 @@ function wipeData() {
   loop();
 }
 
-// draw() function is called repeatedly (not in my case haha), it's the main animation loop
+// draw() function is called repeatedly, it's the main animation loop
 function draw() {
   noLoop();
 
@@ -353,7 +355,7 @@ function draw() {
             imgC.rect(0, 0, 1000, 10);
           }
         }
-        if (randNum == 3){
+        if (randNum == 3) {
           for (var i = 0; i < 5000; i++) {
             //where the circles are placed
             imgC.fill(random(255), random(255), random(255));
