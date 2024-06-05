@@ -1,13 +1,3 @@
-// sketch.js - purpose and description here
-// Author: Your Name
-// Date:
-
-// Here is how you might set up an OOP p5.js project
-// Note that p5.js looks for a file called sketch.js
-
-// Constants - User-servicable parts
-// In a longer project I like to put these in a separate file
-
 // Globals
 let myInstance;
 let canvasContainer;
@@ -27,7 +17,7 @@ let patternTypeC;
 // setup() function is called once when the program starts
 function setup() {
   canvasContainer = $("#canvas-container");
-  let canvas = createCanvas(600, 600);
+  let canvas = createCanvas(width * 6, height * 6.5);
   canvas.parent("canvas-container");
 
   //make button to change shirt to circles
@@ -172,7 +162,9 @@ function draw() {
   imgAClone.mask(mkA.get());
 
   //the two numbers here is what moves the pattern
-  image(imgAClone, 50, 50);
+  console.log(width)
+  shirtA = image(imgAClone, width/12, height/13);
+  //shirtA = image(imgAClone, 50, 50);
 
   //doing the right person
   imgB = createGraphics(width, height);
